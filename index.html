@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360 VR</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>360 VR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <iframe  width="560" height="315"
-    src="https://www.youtube.com/embed/BGhx435VqEE"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+  <h1 id="main-title">The Flow of Becoming</h1>
+
+  <div class="content" id="main-content">
+  <div class="first-half">
+      <p>
+      This VR experience invites you to immerse yourself in a meditative flow whilst drifting through water currents that echo the cycles of human life.<br><br>
+      Explore the sensation of being moved by a greater force, from serene stillness into the overwhelming stream beyond your control. <br><br>
+      You are trapped in a complex mechanical system that pulls and moulds you. Surrender to the current as you dissolve into the organic rhythm of water, resistance fades and you return to begin again.
+    </p>
+  </div>
+    <div class="second-half">
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/BGhx435VqEE"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const title = document.getElementById("main-title");
+      const content = document.getElementById("main-content");
+
+      title.classList.add("shrink");
+
+      setTimeout(() => {
+        content.classList.add("visible");
+        document.body.style.overflow = "auto"; 
+      }, 1500); 
+
+    }, 4000); 
+  </script>
 </body>
 </html>

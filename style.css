@@ -1,10 +1,135 @@
-body{
-    background: black;
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('fonts/PowerGrotesk-Regular.ttf') format('truetype');  
+  font-weight: normal;
 }
 
-iframe{
-    position: absolute;;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+body {
+margin: 0;
+background-color: black;
+color: white;
+font-family: 'MyCustomFont', sans-serif;
+text-align: center;
+overflow: hidden;
+}
+
+h1 {
+  font-size: 10vw;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  display: inline-block;
+  max-width: 100%;
+  margin: 20vh auto 0 auto;
+  animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+  margin-bottom: 3%;
+}
+
+@keyframes typing {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+
+/* After typing, shrink the title */
+h1.shrink {
+animation: none;
+border-right: none;
+transition: font-size 1.5s ease;
+font-size: 5vw;
+}
+
+/* Hidden initially */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.content.visible {
+opacity: 1;
+}
+
+.first-half, .second-half {
+  flex: 1 1 500px;
+  margin: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.content.visible .first-half {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.content.visible .second-half {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1s;
+}
+
+iframe {
+  width: 100%;
+  border: none;
+  filter: grayscale(100%) contrast(1.2);
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.first-half p {
+  line-height: 1.7;
+  font-size: 1.1em;
+  background: lineargradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 100%);
+  padding: 20px;
+  border-right: 3px solid white;
+  animation: textGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes subtleZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 10px #ffffff;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffffff;
+  }
+}
+
+
+@media(max-width:500px){
+    iframe{
+        max-width: 300px;
+    }
 }
