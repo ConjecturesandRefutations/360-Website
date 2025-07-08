@@ -30,17 +30,17 @@ h1 {
   to { clip-path: inset(0 0 0 0); }
 }
 
-
 /* After typing, shrink the title */
 h1.shrink {
 animation: none;
 border-right: none;
 transition: font-size 1.5s ease;
 font-size: 5vw;
+animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 /* Hidden initially */
-.content {
+.content, .canvas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -52,7 +52,7 @@ font-size: 5vw;
   transition: opacity 2s ease;
 }
 
-.content.visible {
+.content.visible, .canvas.visible {
 opacity: 1;
 }
 
@@ -90,8 +90,16 @@ iframe {
   background: lineargradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 100%);
   padding: 20px;
   border-right: 3px solid white;
-  animation: textGlow 4s ease-in-out infinite alternate;
+  animation: textGlow 1s ease-in-out infinite alternate;
 }
+
+  #network-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: black;
+  }
 
 @keyframes fadeIn {
   from { opacity: 0 }
@@ -120,10 +128,10 @@ iframe {
 
 @keyframes textGlow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 10px #ffffff;
+    text-shadow: 0 0 2px #fff, 0 0 20px #ffffff;
   }
   to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #ffffff;
+    text-shadow: 0 0 0px #fff, 0 0 0px #ffffff;
   }
 }
 
