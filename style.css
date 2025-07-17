@@ -175,3 +175,34 @@ iframe {
         max-width: 300px;
     }
 }
+
+@media (max-width: 1162px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* content-two: Text (2nd half) before image (1st half) */
+  .content-two .first-half {
+    order: 1;
+  }
+  .content-two .second-half {
+    order: 0;
+  }
+
+  /* content-three: Text (1st half), then image (2nd half) — already correct order, but set it anyway */
+  .content-three .first-half {
+    order: 0;
+  }
+  .content-three .second-half {
+    order: 1;
+  }
+
+  /* content-four: Text (2nd half) before image (1st half) */
+  .content-four .first-half {
+    order: 1;
+  }
+  .content-four .second-half {
+    order: 0;
+  }
+}
