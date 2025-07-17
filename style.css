@@ -182,7 +182,12 @@ iframe {
     flex-direction: column;
   }
 
-  /* content-two: Text (2nd half) before image (1st half) */
+  .first-half,
+  .second-half {
+    flex: unset; /* Override the large flex-basis */
+    margin: 10px 0; /* Reduce vertical spacing */
+  }
+
   .content-two .first-half {
     order: 1;
   }
@@ -190,7 +195,6 @@ iframe {
     order: 0;
   }
 
-  /* content-three: Text (1st half), then image (2nd half) — already correct order, but set it anyway */
   .content-three .first-half {
     order: 0;
   }
@@ -198,7 +202,6 @@ iframe {
     order: 1;
   }
 
-  /* content-four: Text (2nd half) before image (1st half) */
   .content-four .first-half {
     order: 1;
   }
