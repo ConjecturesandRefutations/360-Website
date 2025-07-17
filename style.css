@@ -186,6 +186,7 @@ iframe {
   .second-half {
     flex: unset; /* Override the large flex-basis */
     margin: 10px 0; /* Reduce vertical spacing */
+    border: none;
   }
 
   .content-two .first-half {
