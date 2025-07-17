@@ -19,17 +19,33 @@
       Explore the sensation of being moved by a greater force, from serene stillness into the overwhelming stream beyond your control. <br><br>
       You are trapped in a complex mechanical system that pulls and moulds you. Surrender to the current as you dissolve into the organic rhythm of water, resistance fades and you return to begin again.
     </p>
-    <img src="images/Image_Natural3.tif">
   </div>
     <div class="second-half">
     <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/BGhx435VqEE"
+      src="https://www.youtube.com/embed/GUfziyGxf7c"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
-  </div> <hr> 
+  </div>
+
+<div class="content">
+  <div class="first-half">
+    <img src="images/image-one.jpeg">
+  </div>
+  <div class="second-half">
+
+        <h2>
+Scene 1: The Descent
+    </h2>
+    <p>You find yourself surrounded by waterfalls. The waterfalls all around you, pulling you gently into motion as the current takes over to the start of a singular path.</p>
+  </div>
+</div>
+
+  <canvas class="canvas" id="network-canvas"></canvas>
+
+  <hr> 
   <div style="padding:3%"><span style="font-size:20px">Creators:</span>
   <br><br>
     Nicola Bisset<br>  
@@ -41,37 +57,42 @@
     Gonzalo Erro<br>
     Instagram: <a href="https://www.instagram.com/sweetpotatogentleman/">@sweetpotatogentleman</a>
   </div>
-  <canvas class="canvas" id="network-canvas"></canvas>
+
 
   <script>
     setTimeout(() => {
-      const title = document.getElementById("main-title");
-      const content = document.getElementById("main-content");
-      const canvas = document.getElementById("network-canvas");
+  const title = document.getElementById("main-title");
+  const canvas = document.getElementById("network-canvas");
 
-      title.classList.add("shrink");
+  title.classList.add("shrink");
 
-      setTimeout(() => {
-        content.classList.add("visible");
-        canvas.classList.add("visible");
-        document.body.style.overflow = "auto"; 
-      }, 1500); 
+  setTimeout(() => {
+    document.querySelectorAll('.content').forEach((el, index) => {
+  setTimeout(() => el.classList.add('visible'), index * 500);
+});
+    canvas.classList.add("visible");
+    document.body.style.overflow = "auto";
+  }, 1500);
+}, 4000);
 
-    }, 4000); 
 
-      const canvas = document.getElementById("network-canvas");
+  const canvas = document.getElementById("network-canvas");
   const ctx = canvas.getContext("2d");
 
   let width, height;
   const nodes = [];
   const numNodes = 100;
 
-  function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-  }
+function resize() {
+  width = window.innerWidth;
+  height = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    window.innerHeight
+  );
+  canvas.width = width;
+  canvas.height = height;
+}
 
   window.addEventListener('resize', resize);
   resize();

@@ -23,8 +23,7 @@ overflow: hidden !important;
 .title-container {
   display: flex;
   justify-content: center;
-}
-
+  }
 
 h1 {
   font-size: 10vw;
@@ -113,13 +112,27 @@ iframe {
   animation: textGlow 1s ease-in-out infinite alternate;
 }
 
-  #network-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: black;
-  }
+#network-canvas {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: -1;
+  background: black;
+  pointer-events: none; 
+}
+
+.first-half img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  filter: grayscale(100%) contrast(1.2);
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0 }
